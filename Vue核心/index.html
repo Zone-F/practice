@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div></div>
+<script>
+  class Dep {
+    constructor () {
+      //用来存放 Watch 对象的数组
+      this.subs = []
+    }
+    //在Sub中添加一个Watch对象
+    addSub (sub) {
+      this.subs.push(sub)
+    }
+    //通知所有Watcher对象进行视图更新
+    notify () {
+      this.subs.forEach((sub)=>{
+        sub.update()
+      })
+    }
+  }
+
+  function cb (val) {
+    /* 渲染视图 */
+    console.log(this);
+    o.da
+    console.log("视图更新啦～");
+  }
+
+  function defineReactive (obj,key,val) {
+    Object.defineProperty(obj,key,{
+      enumerable :true , //可枚举
+      configurable: true, //熟悉可被修改或删除
+      get: function reactiveGetter () {
+        return val
+      },
+      set: function reactiveSetter (newVal) {
+        if(newVal == val) return;
+        cb(newVal)
+      }
+    })
+  }
+  //遍历对象，使对象的每一个
+  function observer (value) {
+    if(!value || (typeof value !== 'object')){
+      return;
+    }
+    Object.keys(value).forEach(key => {
+      defineReactive(value,key,value[key])
+    });
+  }
+  class myVue{
+    constructor (options) {
+      this._data = options.data;
+      observer(this._data)
+    }
+  }
+  let o = new myVue({
+    data:{
+      test : ''
+    }
+  })
+  o._data.test = 'Hello World'
+  console.log(o._data.test);
+</script>
+</body>
+</html>

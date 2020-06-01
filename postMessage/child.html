@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>children Page</div>
+  <script>
+      window.addEventListener('message',function(e){
+        console.log(2);
+        
+          console.log(e.data)
+      },false)
+      window.addEventListener("message", receiveMessage, false);
+      function receiveMessage(messge){
+        console.log('event',event);
+      }
+  </script>
+</body>
+</html>
