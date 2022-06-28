@@ -1,0 +1,29 @@
+{
+  "name": "practice",
+  "version": "1.0.0",
+  "description": "[postMessage](https://zone-f.github.io/practice/postMessage/1.html )",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zone-F/practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zone-F/practice/issues"
+  },
+  "homepage": "https://github.com/Zone-F/practice#readme",
+  "devDependencies": {
+    "babel-jest": "^28.1.1",
+    "jest": "^28.1.1"
+  }
+}
